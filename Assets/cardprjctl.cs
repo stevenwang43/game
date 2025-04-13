@@ -12,6 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb.MovePosition(playerpos);
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         diff=mousePos-playerpos;
         angle = Mathf.Atan2(diff.y,diff.x)*Mathf.Rad2Deg - 90f;
