@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = player.GetComponents<BoxCollider2D>()[1].bounds.center;
+        playerPos = player.GetComponents<BoxCollider2D>()[0].bounds.center;
         rb.MovePosition(playerPos);
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         diff=mousePos-playerPos;
