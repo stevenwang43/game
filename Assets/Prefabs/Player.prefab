@@ -131,11 +131,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2011283615897276544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a736b27fe6fedf40bd64a26ec1f2e1a, type: 3}
+  m_Script: {fileID: 11500000, guid: d6015ddce4e4b024e8e200f6f2795ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  collisionOffset: 0.01
+  collisionOffset: 0.05
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -145,11 +145,14 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 0
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  card: {fileID: 0}
+  cooldown: 1
+  count: 0
 --- !u!50 &-3689850376819412742
 Rigidbody2D:
   serializedVersion: 5

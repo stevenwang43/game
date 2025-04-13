@@ -32,6 +32,11 @@ public class CardPrjctl : MonoBehaviour
             if (hit.collider.CompareTag("Tile Collider")) {
                 Destroy(gameObject);
             }
+            if (hit.collider.CompareTag("Enemy")) {
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                enemy.Health -= 5;
+                Destroy(gameObject);
+            }
         }
     }
 }
