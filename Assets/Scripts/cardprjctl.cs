@@ -29,7 +29,7 @@ public class CardPrjctl : MonoBehaviour
         rb.MovePosition(rb.position + diff*moveSpeed*Time.deltaTime);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, moveSpeed * Time.deltaTime);
         if (hit.collider != null) {
-            if (hit.collider.CompareTag("Tile Collider")) {
+            if (hit.collider.CompareTag("TileCollider")) {
                 Destroy(gameObject);
             }
             if (hit.collider.CompareTag("Enemy")) {
