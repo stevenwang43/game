@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 813666858049533746}
   - component: {fileID: 1201576933072864159}
   - component: {fileID: 8978287943353261959}
-  - component: {fileID: 3351530307829651236}
   - component: {fileID: -3689850376819412742}
   - component: {fileID: 196549424530759109}
   - component: {fileID: 6894769513565012529}
+  - component: {fileID: 3351530307829651236}
+  - component: {fileID: -3981614713631597774}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -122,37 +123,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3351530307829651236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011283615897276544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6015ddce4e4b024e8e200f6f2795ed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.05
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  card: {fileID: 0}
-  cooldown: 1
-  count: 0
 --- !u!50 &-3689850376819412742
 Rigidbody2D:
   serializedVersion: 5
@@ -272,3 +242,48 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.14, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &3351530307829651236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011283615897276544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6015ddce4e4b024e8e200f6f2795ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  collisionOffset: 0.05
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  card: {fileID: 0}
+  cooldown: 1
+  count: 0
+--- !u!114 &-3981614713631597774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011283615897276544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a241f5b6830ad4479cbc847dac98e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  iframeDuration: 1
