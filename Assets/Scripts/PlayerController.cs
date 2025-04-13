@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject card;
 
-    public float cooldown = 20f;
+    public float cooldown = 10f;
     public float count = 0f;
 
     // Start is called before the first frame update
@@ -45,7 +45,10 @@ public class PlayerController : MonoBehaviour
         }
         count+=Time.deltaTime;
         if(Input.GetButtonDown("Fire1")&&count>cooldown) {
-            Instantiate(card,rb.position,Quaternion.identity);
+            GameObject instantiatedCard = Instantiate(card, rb.position, Quaternion.identity);
+            instantiatedCard.transform.SetParent(transform);
+            CardPrjctl cardScript = instantiatedCard.GetComponent<CardPrjctl>();
+            Destroy(instantiatedCard, cardScript.travelTime * Time.deltaTime);
             count=0;
         }
 

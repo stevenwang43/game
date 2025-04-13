@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CardPrjctl : MonoBehaviour
 {
-    public float moveSpeed = 0.01f;
+    public float moveSpeed;
+    public float travelTime;
     public Rigidbody2D rb;
     Vector2 diff;
     public GameObject player; //make this the actual player position later
@@ -26,5 +27,11 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         rb.MovePosition(rb.position + diff*moveSpeed*Time.deltaTime);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, moveSpeed * Time.deltaTime);
+        if (hit.collider != null) {
+            if (hit.collider.CompareTag("Tile Collider")) {
+                Destroy(gameObject);
+            }
+        }
     }
 }
