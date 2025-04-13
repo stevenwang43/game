@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health = 10;
+    public float damage = 5;
     
     public GameObject player;
     public float speed;
@@ -41,4 +42,13 @@ void Update()
     public void Defeated() {
         Destroy(gameObject);
     }
+
+void OnTriggerStay2D(Collider2D collider)
+{   
+    if (collider.CompareTag("Player"))
+    {
+        PlayerHealth playerHealth = collider.GetComponent<PlayerHealth>();
+        playerHealth.TakeDamage(damage);
+    }
+}
 }

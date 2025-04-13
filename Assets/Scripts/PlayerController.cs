@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Takes and handles input and movement for a player character
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1f;
@@ -18,10 +17,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject card;
 
-    public float cooldown = 20f;
+    public float cooldown = 1f;
     public float count = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,9 +41,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        count+=Time.deltaTime;
-        if(Input.GetButtonDown("Fire1")&&count>cooldown) {
-            Instantiate(card,rb.position,Quaternion.identity);
+        count += Time.deltaTime;
+        if(Input.GetButton("Fire1") && count > cooldown) {
+            GameObject instantiatedCard = Instantiate(card, rb.position, Quaternion.identity);
+            instantiatedCard.transform.SetParent(transform);
+            CardPrjctl cardScript = instantiatedCard.GetComponent<CardPrjctl>();
+            Destroy(instantiatedCard, cardScript.travelTime * Time.deltaTime);
             count=0;
         }
 
@@ -63,14 +64,10 @@ public class PlayerController : MonoBehaviour
             if(count == 0){
                 rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
                 return true;
-            } else {
-                return false;
             }
-        } else {
-            // Can't move if there's no direction to move in
             return false;
         }
-        
+        return false;
     }
 
     void OnMove(InputValue movementValue) {
