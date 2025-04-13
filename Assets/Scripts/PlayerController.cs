@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
 
+    public GameObject card;
+
+    public float cooldown = 20f;
+    public float count = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +43,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        count+=Time.deltaTime;
+        if(Input.GetButtonDown("Fire1")&&count>cooldown) {
+            Instantiate(card,rb.position,Quaternion.identity);
+            count=0;
+        }
+
     }
 
     private bool TryMove(Vector2 direction) {
